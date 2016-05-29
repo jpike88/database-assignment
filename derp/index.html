@@ -1,0 +1,47 @@
+<html>
+<head>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+    <script src="bower_components/cytoscape/dist/cytoscape.js"></script>
+
+    <script>
+        var socket = io('52.62.15.174:81');
+        $( document ).ready(function() {
+        $('#derp').click(function(){
+            console.log('test');
+            socket.emit('chat message', 'wat');
+            return false;
+          });
+          
+          var cy = cytoscape({
+              container: $('#cy'),
+              style: cytoscape.stylesheet()
+              .selector('.trainPresent').css({
+                                    'background-image': 'images/train-icon.png',
+                                    'background-fit': 'contain',
+                                    'background-color': 'white'
+                                  }),
+                
+            });
+            
+            var loading = true;
+          
+        socket.on('some event', function(msg){
+            var loading = false;
+            cy.json(msg.nodeMap);
+          });
+        });
+        
+    </script>
+    <style>
+     #cy {
+      width: 300px;
+      height: 300px;
+      display: block;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="cy"></div>
+  </body>

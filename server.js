@@ -35,10 +35,14 @@ server.listen(81, function(){
 
 var cy = cytoscape();
 
+cy.add([
+      { group: "nodes", data: { id: "n0", label: 'bottom left' }, position: { x: 100, y: 100 } },
+      { group: "nodes", data: { id: "n1" }, position: { x: 200, y: 200 } },
+      { group: "edges", data: { id: "e0", source: "n0", target: "n1" } }
+    ]);
 
 
-
-new CronJob('*/5 * * * * *', function() {
+new CronJob('*/2 * * * * *', function() {
     
     // 5 trains, 5 colours.
     // red, blue, green, yellow, purple. tracks are also these colors
@@ -46,11 +50,7 @@ new CronJob('*/5 * * * * *', function() {
     
     
     // init all stations.
-    cy.add([
-      { group: "nodes", data: { id: "n0", label: 'bottom left' }, position: { x: 100, y: 100 } },
-      { group: "nodes", data: { id: "n1" }, position: { x: 200, y: 200 } },
-      { group: "edges", data: { id: "e0", source: "n0", target: "n1" } }
-    ]);
+    
     
     // classes : 'trainPresent' <- this means a train is present at that station.
     

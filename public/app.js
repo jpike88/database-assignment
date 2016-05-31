@@ -9,8 +9,7 @@ angular.module('myApp', [
 
 .factory('socket', function (socketFactory) {
   return socketFactory({
-    //ioSocket: io.connect('52.62.15.174:8001')
-    ioSocket: io.connect('127.0.0.1:8001')
+    ioSocket: io.connect('52.62.15.174:8001')
   });
 })
 

@@ -512,16 +512,21 @@ io.on('connection', function(socket) {
 
             knexBA.raw("SELECT * FROM Train_Business_Analysis").then(function(a) {
 
+              knexBA.raw("SELECT COUNT(cost) FROM Ticket WHERE cost > 5.00").then(function(c) {
+
 
                 var returnPackage = {
                     trains: (JSON.parse(JSON.stringify(r)))[0],
                     nodeMap: cy.json(),
-                    analytics: (JSON.parse(JSON.stringify(a)))[0]
+                    analytics: (JSON.parse(JSON.stringify(a)))[0],
+                    ticketsAboveTwoStops: (JSON.parse(JSON.stringify(c)))[0]
                 };
 
                 socket.emit('getBusinessAnalystData', returnPackage);
 
-            })
+              });
+
+            });
 
         });
 

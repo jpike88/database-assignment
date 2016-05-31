@@ -8,6 +8,14 @@ DROP VIEW Top_Customers;
 
 DROP VIEW Train_Business_Analysis;
 
+-- End of file.
+
+DROP PROCEDURE move_train_to_station;
+
+DROP TRIGGER ticket_customer_update;
+
+DROP TRIGGER ticket_customer_insert;
+
 -- foreign keys
 ALTER TABLE Ticket
     DROP FOREIGN KEY Ticket_Customer;
@@ -45,6 +53,3 @@ DROP TABLE Ticket;
 DROP TABLE Track_Closure;
 
 DROP TABLE Train;
-
--- End of file.
-

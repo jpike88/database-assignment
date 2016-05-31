@@ -94,6 +94,7 @@ angular.module('myApp', [
 	    	$scope.trains = data.trains;
 	    	}	
 	    	$scope.analytics = data.analytics;
+	    	$scope.ticketsAboveTwoStops = data.ticketsAboveTwoStops;
 	    	cy.json(data.nodeMap);
 
 	    })

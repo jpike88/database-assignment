@@ -101,6 +101,9 @@
   </tbody>
 </table>
         </div>
+        <div class="col-md-12" ng-if="role == 'ba'">
+          Tickets that travelled more than one station: {{ticketsAboveTwoStops[0]["COUNT(cost)"]}}
+        </div>
         <div class="col-md-6" ng-if="role == 'operator'">
           <h1>Top Stations</h1>
 <table>
